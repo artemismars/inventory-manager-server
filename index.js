@@ -1,10 +1,29 @@
-const express = require("express");
+'use strict';
+
+// Get Dependencies
+const express = require('express');
+const socket = require('socket.io');
+const http = require('http');
+const passport = require('./app/config/passport');
 const app = express();
-const PORT = process.env.PORT || 8080;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Middleware to capture any HTTP responses with a
 
-app.listen(PORT, () => {
-  console.log(`Server listening to port on ${PORT}`);
-});
+// Initialize winston logger
+
+// Initialize socket.io
+
+// Initialize sequelize
+
+/**
+ * Get port from environment and store in Express
+ */
+
+
+/**
+ * Create HTTP server
+ */
+
+/**
+ * Listen to requests on provided port, on all network interfaces
+ */
