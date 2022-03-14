@@ -1,0 +1,34 @@
+{
+    "db": {
+        "development": {
+            "username": "root",
+            "password": "password",
+            "database": "inventory_management",
+            "host": "localhost",
+            "dialect": "mysql",
+            "port": 3306
+        },
+        "staging": {
+            "username": "",
+            "password": "",
+            "database": "",
+            "host": "",
+            "dialect": "mysql",
+            "port": 3306
+        },
+        "production": {
+            "username": "",
+            "password": "",
+            "database": "",
+            "host": "",
+            "dialect": "mysql",
+            "port": 3306
+        }
+    },
+    "FORCE_DB_SYNC": "false",
+    "jwtOptions": {
+        "secretOrKey": "somekey@1234",
+        "ignoreExpiration": true,
+        "passReqToCallback": true
+      }
+}
