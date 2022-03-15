@@ -13,7 +13,6 @@ function signUp(input) {
         lastName: input.lastName,
         username: input.username,
         email: input.email,
-        cnic: input.cnic,
         phoneNumber: input.phoneNumber,
         imageUrl: input.imageUrl,
         gender: input.gender,

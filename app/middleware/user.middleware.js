@@ -12,7 +12,6 @@ const validateSignUp = (req, res, done) => {
     req.checkBody('lastName', 'Last Name is required.').notEmpty();
     req.checkBody('username', 'Username is required.').notEmpty();
     req.checkBody('password', 'Password is required.').notEmpty();
-    req.checkBody('cnic', 'CNIC is required.').notEmpty();
     req.checkBody('phoneNumber', 'Phone number is required.').notEmpty();
 
     if (req.body.password.length < 8 || req.body.password.length > 16) {
@@ -21,9 +20,6 @@ const validateSignUp = (req, res, done) => {
 
     if (req.body.username.length < 5 || req.body.username.length > 16) {
         return generalMiddleware.standardErrorResponse(res, 'Username must be equal or greater than 5 and less than 16', "user.middleware.validateSignUp", 403);
-    }
-    if (req.body.cnic.length !== 13) {
-        return generalMiddleware.standardErrorResponse(res, 'CNIC must be equal to 13 digits', "user.middleware.validateSignUp", 403);
     }
 
     req.getValidationResult().then((result) => {
