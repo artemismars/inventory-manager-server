@@ -39,7 +39,8 @@ fs.readdirSync(appConfig.computedConfig.modelsDir)
     // import model files and save model names
     .forEach(function(file) {
         winston.info('Loading model file ' + file);
-        var model = sequelize.import(path.join(appConfig.computedConfig.modelsDir, file));
+        // var model = sequelize.import(path.join(appConfig.computedConfig.modelsDir, file));
+        const model = require(path.join(__dirname,'models', file))(sequelize, Sequelize);
         db[model.name] = model;
     });
 
