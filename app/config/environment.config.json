@@ -2,7 +2,7 @@
     "db": {
         "development": {
             "username": "root",
-            "password": "password",
+            "password": "waqas",
             "database": "inventory_management",
             "host": "localhost",
             "dialect": "mysql",

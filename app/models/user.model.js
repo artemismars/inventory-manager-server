@@ -32,7 +32,6 @@ module.exports = function(sequelize, DataTypes) {
         },{
             associate: function(models) {
                 User.belongsTo(models.Role);
-                User.belongsTo(models.Address);
             }
         }
     );

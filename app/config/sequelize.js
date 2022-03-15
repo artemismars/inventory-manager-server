@@ -35,12 +35,13 @@ let sequelize =
 fs.readdirSync(appConfig.computedConfig.modelsDir)
     .filter(function(file) {
         return (file.indexOf('.') !== 0) && (file !== 'index.js')
+        console.log(file);
     })
     // import model files and save model names
     .forEach(function(file) {
         winston.info('Loading model file ' + file);
         // var model = sequelize.import(path.join(appConfig.computedConfig.modelsDir, file));
-        const model = require(path.join(__dirname,'models', file))(sequelize, Sequelize);
+        const model = require(path.join(appConfig.computedConfig.modelsDir, file));
         db[model.name] = model;
     });
 
