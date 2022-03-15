@@ -23,7 +23,6 @@ module.exports = function(sequelize, DataTypes) {
             },
             hashedPassword: DataTypes.STRING,
             salt: DataTypes.STRING,
-            cnic: DataTypes.STRING,
             phoneNumber: DataTypes.STRING,
             imageUrl: DataTypes.STRING,
             gender: DataTypes.STRING,

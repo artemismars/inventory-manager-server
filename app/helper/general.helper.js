@@ -4,7 +4,7 @@
 var PromiseReturns = require('bluebird'),
     StandardError = require('standard-error'),
     _ = require('lodash'),
-    AWS = require('aws-sdk'),
+//AWS = require('aws-sdk'),
     fs = require('fs');
 
 function validateEmail(email) {

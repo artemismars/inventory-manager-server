@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
     "body-parser": "^1.19.2",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -27,6 +28,7 @@
     "passport-jwt": "^4.0.0",
     "sequelize": "^6.17.0",
     "socket.io": "^4.4.1",
+    "standard-error": "^1.1.0",
     "uuid": "^8.3.2",
     "winston": "^3.6.0"
   },

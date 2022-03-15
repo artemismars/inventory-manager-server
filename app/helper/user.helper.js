@@ -1,9 +1,8 @@
 'use strict';
 
-const db = require('../config/sequelize.config');
+const db = require('../config/sequelize');
 const generalHelpingMethods = require('./general.helper');
 const helpingHelper = require('./helping.helper');
-const addressHelper = require('./address.helper');
 const Op = require('sequelize').Op;
 const _ = require('lodash');
 

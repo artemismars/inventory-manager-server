@@ -16,10 +16,10 @@ global.winston = require('./app/config/winston');
 require('./app/config/express')(app, passport);
 
 //Initializing socket io 
-require('./app/config/socket.config')(app);
+require('./app/config/socket')(app);
 
 //Iniitalizing sequlize
-var db = require('./app/config/sequelize.config');
+var db = require('./app/config/sequelize');
 
 /**
  * Get port from environment and store in Express.
@@ -34,9 +34,9 @@ app.set('port', port);
  */
 
 const server = http.createServer(app);
-const io = socket.listen(server);
+const io = socket(server);
 
-require('./app/config/socket.config')(io);
+require('./app/config/socket')(io);
 
 /**
  * Listen on provided port, on all network interfaces.

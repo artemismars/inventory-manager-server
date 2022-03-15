@@ -43,13 +43,19 @@ fs.readdirSync(appConfig.computedConfig.modelsDir)
         // var model = sequelize.import(path.join(appConfig.computedConfig.modelsDir, file));
         const model = require(path.join(appConfig.computedConfig.modelsDir, file));
         db[model.name] = model;
+        console.log(db);
     });
 
 // invoke associations on each of the models
 Object.keys(db).forEach(function(modelName) {
-    if (db[modelName].options.hasOwnProperty('associate')) {
+    console.log(modelName);
+    console.log("'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''");
+    if (db[modelName].associate) {
         db[modelName].options.associate(db)
     }
+    // if (db[modelName].options.hasOwnProperty('associate')) {
+    //     db[modelName].options.associate(db)
+    // }
 });
 
 // Synchronizing any model changes with database. 
