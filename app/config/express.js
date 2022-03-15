@@ -17,7 +17,7 @@ module.exports = function(app, passport) {
     app.use(bodyParser.urlencoded({
         extended: false
     }));
-    app.use(expressValidator());
+   // app.use(expressValidator());
 
     //enabling cors
     app.use(cors());
