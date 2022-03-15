@@ -1,36 +1,31 @@
-const JwtStrategy = require('passport-jwt').Strategy;
-const BearerStrategy = require('passport-http-bearer');
-const { ExtractJwt } = require('passport-jwt');
-//const { jwtSecret } = require('./vars');
-config = require('./environment.config');
-const authProviders = require('../services/authProviders');
-//const User = require('../api/models/user.model');
+'use strict';
 
-const jwtOptions = {
-  secretOrKey: process.env.secretOrKey || config.jwtOptions.secretOrKey,
-  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
-};
+const passport = require('passport'),
+    config = require('./environment.config'),
+    passportJWT = require('passport-jwt');
 
-const jwt = async (payload, done) => {
-  try {
-    const user = await User.findById(payload.sub);
-    if (user) return done(null, user);
-    return done(null, false);
-  } catch (error) {
-    return done(error, false);
-  }
-};
 
-const oAuth = service => async (token, done) => {
-  try {
-    const userData = await authProviders[service](token);
-    const user = await User.oAuthLogin(userData);
-    return done(null, user);
-  } catch (err) {
-    return done(err);
-  }
-};
+//handeling passport stretegy
+let ExtractJwt = passportJWT.ExtractJwt;
+let JwtStrategy = passportJWT.Strategy;
 
-exports.jwt = new JwtStrategy(jwtOptions, jwt);
-exports.facebook = new BearerStrategy(oAuth('facebook'));
-exports.google = new BearerStrategy(oAuth('google'));
+let newConfig = {
+    jwtOptions: {
+        "secretOrKey": process.env.secretOrKey || config.jwtOptions.secretOrKey ,
+        "ignoreExpiration": process.env.ignoreExpiration || config.jwtOptions.ignoreExpiration,
+        "passReqToCallback": process.env.passReqToCallback || config.jwtOptions.passReqToCallback
+    }
+}
+
+newConfig.jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+
+var strategy = new JwtStrategy(newConfig.jwtOptions, (req, jwt_payload, next) => {
+
+    next(null, jwt_payload);
+
+});
+
+passport.use(strategy);
+
+
+module.exports = passport;
