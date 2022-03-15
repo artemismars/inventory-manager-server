@@ -21,6 +21,4 @@ const dbseed = (db, sequelize) => {
     
 }
 
-module.exports = {
-    dbseed
-}
+module.exports = dbseed
