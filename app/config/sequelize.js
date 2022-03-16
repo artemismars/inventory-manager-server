@@ -1,15 +1,15 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-var Sequelize = require('sequelize');
-var _ = require('lodash');
-var appConfig = require('./config');
-var config = require('./environment.config');
-var winston = require('./winston');
-var dbseed = require('./dbseed');
-var db = {};
-var configDb = {};
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
+const _ = require('lodash');
+const appConfig = require('./config');
+const config = require('./environment.config');
+const winston = require('./winston');
+const dbseed = require('./dbseed');
+let db = {};
+let configDb = {};
 
 winston.info('Initializing Sequelize...');
 winston.info(process.env.NODE_ENV);

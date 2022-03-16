@@ -25,7 +25,7 @@
             "port": 3306
         }
     },
-    "FORCE_DB_SYNC": "false",
+    "FORCE_DB_SYNC": "true",
     "jwtOptions": {
         "secretOrKey": "somekey@1234",
         "ignoreExpiration": true,
