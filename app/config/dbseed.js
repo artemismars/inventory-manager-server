@@ -15,7 +15,8 @@ module.exports = (db, sequelize) => {
     }).then(function(){
 
         return db.Role.create({
-            // enter dummy role
+            name: 'admin',
+            description:'this is for admin'
         })
     }).then(function(){
 
